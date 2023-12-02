@@ -1,0 +1,32 @@
+import discord
+from discord.ext import commands
+
+intents = discord.Intents.default()
+intents.messege.content = True
+
+bot = commands.Bot(command_prefix='?',intents=intents)
+
+materiale = {
+        "PLASTICA": "Durata: 1000 anni",
+        "CARTA": "Durata: 1-2 mesi",
+        "ALLUMINIO": "Durata: 100 anni",
+        "METALLO": "Durata: 8 anni"
+        }
+
+@bot.event
+async def on_ready():
+    print(f"Hai fatto l'accesso come{bot.user}")
+
+
+@bot.command
+async def materiale(ctx):
+    await ctx.send
+
+    risposta = input("Materiale(es:PLASTICA): ")
+    if risposta in materiale.keys():
+        print(materiale[risposta])
+    else:
+        print("Non ho trovato qul materiale. Controlla di aver scritto il nome dell' oggetto con le letere MAIUSCOLE!")
+
+
+bot.run('87be987940452d8ec2ba34c2e1ba1de44dd43e0fc5deaeefbedd0e9d02126391')
